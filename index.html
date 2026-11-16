@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Noir – Association Étudiante d’Électronique & Fabrication Numérique</title>
+    <meta name="description" content="Lab Noir, laboratoire étudiant d’électronique, modding, impression 3D et programmation. Rejoignez nos ateliers, créez des projets concrets et développez vos compétences.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Logo Lab Noir – laboratoire étudiant en électronique">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Lab Noir
+            </a>
+            <nav aria-label="Menu principal">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="nav-link active">Accueil</a></li>
+                    <li><a href="#apropos" class="nav-link">À propos</a></li>
+                    <li><a href="#activites" class="nav-link">Activités</a></li>
+                    <li><a href="#projets" class="nav-link">Projets</a></li>
+                    <li><a href="#equipe" class="nav-link">Équipe</a></li>
+                    <li><a href="#evenements" class="nav-link">Événements</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Rejoignez‑nous</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu de navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <canvas class="hero-canvas-bg" id="heroCanvas" aria-hidden="true"></canvas>
+            <div class="hero-content">
+                <h1>Créez, apprenez, partagez</h1>
+                <p>Le laboratoire étudiant où l’électronique rencontre la fabrication numérique.</p>
+                <div class="hero-actions">
+                    <a href="#projets" class="btn">Découvrir nos projets</a>
+                    <a href="#contact" class="btn btn-outline">Adhérer à l'asso</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- À propos -->
+        <section id="apropos">
+            <div class="container">
+                <h2 class="section-title">Qui sommes‑nous ?</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <p>Lab Noir est une association étudiante qui réunit passionnés et curieux autour de projets concrets : conception de circuits imprimés, soudure, modding de consoles, impression 3D, programmation de micro‑contrôleurs et prototypage DIY.</p>
+                        <p>Nous offrons un cadre collaboratif, un parc d'équipements spécialisés (stations de soudage, imprimantes 3D résine et filament, oscilloscopes), des ateliers réguliers et un réseau d’experts pour transformer chaque idée en prototype fonctionnel, que vous soyez débutant total ou maker confirmé.</p>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stat-item">
+                            <h3>120+</h3>
+                            <p>Membres actifs et passionnés</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>45</h3>
+                            <p>Projets réalisés par les étudiants</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Accès au lab pour les membres</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domaines de compétence -->
+        <section id="activites">
+            <div class="container">
+                <h2 class="section-title">Domaines de compétence</h2>
+                <p class="section-intro">Découvrez les piliers techniques de notre laboratoire et les expertises développées par nos membres au quotidien.</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/></svg>
+                        </div>
+                        <h3>Conception de circuits imprimés</h3>
+                        <p>De la schématique sur KiCad à la fabrication, nous maîtrisons chaque étape du design PCB.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <h3>Atelier soudure & réparation</h3>
+                        <p>Apprenez les techniques de soudure manuelle (CMS et traversant) et réparez vos appareils.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                        </div>
+                        <h3>Modding de consoles & hardware</h3>
+                        <p>Personnalisez consoles, casques VR et objets connectés avec des solutions créatives.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                        <h3>Impression 3D & prototypage</h3>
+                        <p>Créez des pièces mécaniques ou boîtiers sur mesure en résine ou filament renforcé.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3>Programmation embarquée</h3>
+                        <p>Initiez‑vous à Arduino, ESP32, Raspberry Pi et réalisez des projets IoT connectés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projets phares & Filtres dynamiques -->
+        <section id="projets">
+            <div class="container">
+                <h2 class="section-title">Nos réalisations récentes</h2>
+                <p class="section-intro">Explorez les créations les plus marquantes de nos membres classées par domaine.</p>
+                
+                <!-- Boutons de filtrage interactifs -->
+                <div class="filter-buttons" role="group" aria-label="Filtres des projets">
+                    <button class="filter-btn active" data-filter="all">Tous les projets</button>
+                    <button class="filter-btn" data-filter="iot">IoT & Embarqué</button>
+                    <button class="filter-btn" data-filter="modding">Modding</button>
+                    <button class="filter-btn" data-filter="pcb">PCB & Électronique</button>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="iot">
+                        <div class="project-img-placeholder">
+                            <span class="project-tag">IoT & Embarqué</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div class="project-body">
+                            <h3>Drone autonome</h3>
+                            <p>PCB sur mesure, firmware C++ sous ESP32 et châssis optimisé imprimé en nylon.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="modding">
+                        <div class="project-img-placeholder">
+                            <span class="project-tag">Modding</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <div class="project-body">
+                            <h3>Console rétro modifiée</h3>
+                            <p>Installation d’un stockage SSD, amélioration silencieuse du refroidissement et écran tactile IPS.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="pcb">
+                        <div class="project-img-placeholder">
+                            <span class="project-tag">PCB & Électronique</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                        </div>
+                        <div class="project-body">
+                            <h3>Station météo IoT</h3>
+                            <p>Capteurs environnementaux haute précision, affichage OLED et transmission de données MQTT.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-cta">
+                    <a href="#contact" class="btn btn-outline">Proposer un projet au Lab</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Événements & ateliers -->
+        <section id="evenements">
+            <div class="container">
+                <h2 class="section-title">Prochaines rencontres & Ateliers</h2>
+                <p class="section-intro">Participez à nos ateliers pratiques ou à nos sessions de hackathon hebdomadaires.</p>
+                <div class="events-list">
+                    <div class="event-item">
+                        <div class="event-info">
+                            <h3>Atelier « Soudure CMS & Réparation avancée »</h3>
+                            <p>Apprenez à manipuler les composants surface mount et à dessouder proprement.</p>
+                        </div>
+                        <div class="event-date">12 novembre 2026</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-info">
+                            <h3>Hackathon « IoT & Impression 3D »</h3>
+                            <p>24h non-stop pour concevoir un objet connecté de A à Z en équipe.</p>
+                        </div>
+                        <div class="event-date">24 novembre 2026</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-info">
+                            <h3>Séminaire « Initiation au Design PCB sur KiCad »</h3>
+                            <p>De zéro au fichier Gerber prêt pour la fabrication en usine.</p>
+                        </div>
+                        <div class="event-date">02 décembre 2026</div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#contact" class="btn">S’inscrire à un événement</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipe -->
+        <section id="equipe">
+            <div class="container">
+                <h2 class="section-title">Notre laboratoire humain</h2>
+                <p class="section-intro">Des étudiants passionnés de toutes filières, guidés par le partage de connaissances.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>Alex MARTIN</h3>
+                        <span class="team-role">Président – Coordination des projets</span>
+                        <p>Étudiant en ingénierie électronique, passionné par le design de PCB multicouches et le prototypage rapide.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>Sarah KERNEL</h3>
+                        <span class="team-role">Responsable Pôle Impression 3D</span>
+                        <p>Étudiante en design industriel, experte en modélisation CAO et optimisation des filaments techniques.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>Thomas V.</h3>
+                        <span class="team-role">Lead Développeur Embarqué</span>
+                        <p>Spécialiste en firmware C/C++ sur microcontrôleurs ARM et protocoles radio basse consommation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">Foire Aux Questions</h2>
+                <p class="section-intro">Vous avez des questions sur l'association ou l'accès au lab ? Voici les réponses.</p>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Dois-je avoir des compétences en électronique pour rejoindre Lab Noir ?
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            Absolument pas ! Le lab accueille tous les niveaux, du débutant absolu qui n'a jamais tenu un fer à souder jusqu'au passionné expérimenté. Nos ateliers d'initiation sont conçus pour vous former pas à pas.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Quels sont les frais d'adhésion à l'association ?
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            L'adhésion annuelle est de 15€ pour les étudiants. Elle donne un accès illimité au local, aux machines (imprimantes 3D, stations de soudure, outillage) ainsi qu'aux consommables de base pour vos projets personnels.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Puis-je venir avec mes propres projets personnels ou professionnels ?
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            Oui, c'est même encouragé ! Que ce soit pour réparer un objet du quotidien, fabriquer un prototype ou préparer un projet d'études, le lab met à votre disposition l'espace et l'aide de la communauté.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages -->
+        <section id="temoignages">
+            <div class="container">
+                <h2 class="section-title">Ce que disent nos membres</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>« Lab Noir m’a permis de passer de débutant complet en soudure à créateur de drones autonomes en moins d’un an. L'entraide y est incroyable. »</p>
+                        <span class="testimonial-author">– Sofia L., 2ᵉ année d’informatique</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>« Les ateliers sont toujours très bien encadrés ; j’ai enfin pu concevoir mes propres circuits imprimés et imprimer mes boîtiers 3D sur mesure. »</p>
+                        <span class="testimonial-author">– Mickaël D., 1ᵉ année de physique</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulaire de contact et adhésion -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Rejoignez-nous ou contactez-nous</h2>
+                <p class="section-intro">Une question, un projet à partager ou envie d'adhérer ? Remplissez le formulaire ci-dessous.</p>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p>Venez nous rendre visite au campus universitaire ou écrivez-nous directement. Nous répondons généralement en moins de 48 heures.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Bâtiment K, Local 04, Campus Universitaire
+                            </div>
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                contact@labnoir.tech
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-box">
+                        <div id="formSuccess" class="form-success-msg" role="alert">
+                            Votre message a bien été envoyé ! Nous vous répondrons très rapidement.
+                        </div>
+                        <form id="mainContactForm" novalidate>
+                            <div class="form-group">
+                                <label for="contactName">Nom complet *</label>
+                                <input type="text" id="contactName" class="input-field" placeholder="Prénom Nom" required aria-label="Votre nom complet">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Adresse email *</label>
+                                <input type="email" id="contactEmail" class="input-field" placeholder="votre.email@etudiant.univ.fr" required aria-label="Votre adresse email">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Objet de votre demande</label>
+                                <select id="contactSubject" class="input-field" aria-label="Objet de votre demande">
+                                    <option value="adhesion">Je souhaite adhérer à l'association</option>
+                                    <option value="projet">J'ai un projet à présenter / développer</option>
+                                    <option value="atelier">Question sur les ateliers</option>
+                                    <option value="autre">Autre demande</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Votre message *</label>
+                                <textarea id="contactMessage" class="input-field" placeholder="Parlez-nous de vous ou de votre projet..." required aria-label="Votre message"></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#activites">Activités</a></li>
+                        <li><a href="#projets">Projets</a></li>
+                        <li><a href="#equipe">Équipe</a></li>
+                        <li><a href="#evenements">Événements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux sociaux</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/labnoir_asso" target="_blank" rel="noopener">Instagram : @labnoir_asso</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn : Lab Noir Association</a></li>
+                        <li><a href="https://discord.gg/labnoir.tech" target="_blank" rel="noopener">Discord : invite labnoir.tech</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form" id="newsletterForm" novalidate>
+                        <label for="emailInput">Inscrivez‑vous à notre infolettre :</label>
+                        <div class="input-group">
+                            <input type="email" id="emailInput" class="input-field" placeholder="votre.email@exemple.com" required aria-label="Votre adresse email pour la newsletter">
+                            <button type="submit" class="btn" style="padding: 0.75rem 1.25rem;">S’abonner</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Lab Noir – Tous droits réservés</p>
+                <div class="footer-legal-links">
+                    <a href="#contact">Politique de confidentialité</a>
+                    <a href="#contact">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript unifié -->
+    <script>
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Filtrage dynamique des projets
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Accordéon FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fermer les autres
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Validation newsletter
+        const newsletterForm = document.getElementById('newsletterForm');
+        const emailInput = document.getElementById('emailInput');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(emailValue)) {
+                emailInput.classList.add('error');
+                emailInput.setAttribute('aria-invalid', 'true');
+            } else {
+                emailInput.classList.remove('error');
+                emailInput.removeAttribute('aria-invalid');
+                alert('Merci pour votre inscription à la newsletter de Lab Noir !');
+                emailInput.value = '';
+            }
+        });
+
+        emailInput.addEventListener('input', () => {
+            if (emailInput.classList.contains('error')) {
+                emailInput.classList.remove('error');
+                emailInput.removeAttribute('aria-invalid');
+            }
+        });
+
+        // Validation formulaire de contact principal
+        const contactForm = document.getElementById('mainContactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let isValid = true;
+
+            if (!name) {
+                document.getElementById('contactName').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('contactName').classList.remove('error');
+            }
+
+            if (!emailRegex.test(email)) {
+                document.getElementById('contactEmail').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('contactEmail').classList.remove('error');
+            }
+
+            if (!message) {
+                document.getElementById('contactMessage').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('contactMessage').classList.remove('error');
+            }
+
+            if (isValid) {
+                contactForm.reset();
+                formSuccess.style.display = 'block';
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+        // Animation légère du fond Hero (Circuit LED abstrait)
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let nodes = [];
+        for (let i = 0; i < 25; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        function animateHero() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)';
+            ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
+            ctx.lineWidth = 1;
+
+            nodes.forEach((node, index) => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = index + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - node.x;
+                    const dy = nodes[j].y - node.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(node.x, node.y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animateHero);
+        }
+
+        // Respect prefers-reduced-motion pour l'animation canvas
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            animateHero();
+        }
+    </script>
+</body>
+</html>
