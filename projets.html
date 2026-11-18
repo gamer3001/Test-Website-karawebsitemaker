@@ -1,491 +1,417 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Catalogue des projets réalisés par les membres : électronique, impression 3D, modding et programmation. Filtres par catégorie, technologies et dossiers techniques publics.">
-<title>Projets — Association Electronique & Fabrication Numérique</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
-    margin-bottom: var(--space-xl);
-  }
-  .filter-btn {
-    background: transparent;
-    border: 1px solid rgba(168, 213, 192, 0.3);
-    color: var(--color-texte);
-    padding: var(--space-s) var(--space-m);
-    font: inherit;
-    cursor: pointer;
-    transition: background var(--duration-fast) var(--easing-standard),
-                color var(--duration-fast) var(--easing-standard),
-                border-color var(--duration-fast) var(--easing-standard);
-  }
-  .filter-btn:hover {
-    border-color: var(--color-accent);
-  }
-  .filter-btn.is-active {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-fond);
-  }
-  .filter-btn:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    gap: var(--space-xl);
-  }
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    background: rgba(42, 111, 91, 0.12);
-    border: 1px solid rgba(168, 213, 192, 0.2);
-    overflow: hidden;
-  }
-  .project-card[hidden] {
-    display: none;
-  }
-  .project-card__visual {
-    aspect-ratio: 2 / 1;
-    background: rgba(10, 10, 10, 0.4);
-    border-bottom: 1px solid rgba(168, 213, 192, 0.2);
-    padding: var(--space-m);
-    box-sizing: border-box;
-  }
-  .project-card__visual svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    color: var(--color-texte-secondaire);
-  }
-  .project-card__content {
-    padding: var(--space-l);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-    flex: 1;
-  }
-  .project-card__category {
-    font-size: var(--fs-step--1);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
-    margin: 0;
-  }
-  .project-card__title {
-    font-size: var(--fs-step-1);
-    line-height: var(--line-height-heading);
-    margin: 0;
-  }
-  .project-card__desc {
-    margin: 0;
-    color: var(--color-texte-secondaire);
-  }
-  .project-card__tech {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-  }
-  .project-card__tech li {
-    font-size: var(--fs-step--1);
-    border: 1px solid rgba(168, 213, 192, 0.3);
-    padding: 2px 8px;
-    color: var(--color-texte);
-  }
-  .project-card__link {
-    margin-top: auto;
-    align-self: flex-start;
-    color: var(--color-accent);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-  }
-  .project-card__link:hover,
-  .project-card__link:focus {
-    border-bottom-color: var(--color-accent);
-  }
-  .project-card__link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-  .dossiers {
-    margin-top: var(--space-3xl);
-  }
-  .dossiers h2 {
-    font-size: var(--fs-step-2);
-    margin-bottom: var(--space-l);
-  }
-  .dossier {
-    border: 1px solid rgba(168, 213, 192, 0.2);
-    margin-bottom: var(--space-m);
-    background: rgba(42, 111, 91, 0.08);
-  }
-  .dossier summary {
-    padding: var(--space-m) var(--space-l);
-    cursor: pointer;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-texte);
-  }
-  .dossier summary:hover {
-    color: var(--color-accent);
-  }
-  .dossier__content {
-    padding: 0 var(--space-l) var(--space-l);
-    color: var(--color-texte-secondaire);
-  }
-  .dossier__content p {
-    margin: 0 0 var(--space-s);
-  }
-  .dossier__content ul {
-    margin: 0;
-    padding-left: var(--space-l);
-  }
-  .site-footer {
-    padding: var(--space-2xl) 0;
-    border-top: 1px solid rgba(168, 213, 192, 0.2);
-  }
-  .site-footer p {
-    margin: 0;
-    color: var(--color-texte-secondaire);
-  }
-  .footer-nav {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-m);
-    padding: 0;
-    margin: var(--space-m) 0 0;
-  }
-  .footer-nav a {
-    color: var(--color-texte-secondaire);
-    text-decoration: none;
-  }
-  .footer-nav a:hover,
-  .footer-nav a:focus {
-    color: var(--color-accent);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets et domaines d'intervention – Savetronik</title>
+  <meta name="description" content="Découvrez les interventions techniques de Savetronik à Provin : réparation de consoles, micro-soudure sur carte mère, reconditionnement informatique et modding embarqué.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .projects-hero {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .project-domain {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .project-domain:last-of-type {
+      border-bottom: none;
+    }
+    .domain-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 850px) {
+      .domain-grid {
+        grid-template-columns: 1fr 300px;
+      }
+    }
+    .domain-header {
+      margin-bottom: 1.5rem;
+    }
+    .domain-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-copper);
+      display: block;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .domain-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      color: var(--color-green);
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+    .domain-intro {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .project-ops {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0 0;
+    }
+    .project-ops li {
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 650px) {
+      .project-ops li {
+        grid-template-columns: 220px 1fr;
+        align-items: baseline;
+      }
+    }
+    .op-label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-green);
+    }
+    .op-desc {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .schematic-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--color-border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: fit-content;
+    }
+    .schematic-box svg {
+      width: 100%;
+      height: auto;
+      max-width: 240px;
+    }
+    .schematic-caption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text);
+      opacity: 0.8;
+      margin-top: 1rem;
+      text-align: center;
+      border-top: 1px dashed var(--color-border);
+      padding-top: 0.75rem;
+      width: 100%;
+    }
+    .action-banner {
+      background-color: var(--color-green);
+      color: #FFFFFF;
+      padding: 3rem 0;
+      margin-top: 2rem;
+    }
+    .action-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    @media (min-width: 768px) {
+      .action-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .action-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+      color: #FFFFFF;
+    }
+    .action-text {
+      margin: 0;
+      font-size: 1rem;
+      color: #EAE6DC;
+    }
+  </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Aller au contenu principal</a>
-
-<header class="site-header" role="banner">
-  <nav class="nav" aria-label="Navigation principale">
-    <svg class="nav-logo" aria-hidden="true" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 12h8M12 16h8M12 20h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <ul class="nav-list" role="list">
-      <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
-      <li><a href="index.html#expertises" class="nav-link">Expertises</a></li>
-      <li><a href="projets.html" class="nav-link" aria-current="page">Projets</a></li>
-      <li><a href="index.html#ateliers" class="nav-link">Ateliers</a></li>
-      <li><a href="rejoindre.html" class="nav-link">Rejoindre</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main id="main" role="main">
-  <section class="section" aria-labelledby="projets-title">
+  <header>
     <div class="container">
-      <header class="section-header">
-        <h1 id="projets-title" class="section-title">Projets</h1>
-        <p class="section-lead">Catalogue des réalisations des membres. Filtrez par catégorie pour retrouver les circuits, impressions, mods et programmes publiés.</p>
-      </header>
-
-      <div class="filters" role="group" aria-label="Filtrer les projets par catégorie">
-        <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Tous</button>
-        <button type="button" class="filter-btn" data-filter="electronique" aria-pressed="false">Électronique</button>
-        <button type="button" class="filter-btn" data-filter="impression-3d" aria-pressed="false">Impression 3D</button>
-        <button type="button" class="filter-btn" data-filter="modding" aria-pressed="false">Modding</button>
-        <button type="button" class="filter-btn" data-filter="programmation" aria-pressed="false">Programmation</button>
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Savetronik Accueil">
+          <span class="brand-title">Savetronik</span>
+          <span class="brand-tag">LOI 1901</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html" aria-current="page">Projets</a></li>
+            <li><a href="avantages.html">Avantages</a></li>
+            <li><a href="atelier.html">Atelier &amp; dons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-
-      <p class="visually-hidden" id="filter-status" aria-live="polite"></p>
-
-      <div class="projects-grid" id="projects-grid">
-        <article class="project-card" data-category="electronique">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <rect x="20" y="20" width="360" height="160" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M40 60 H120 V100 H200 V60 H280 V140 H360" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M40 140 H80 V100 H160 V140 H240 V100 H320 V140 H360" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <rect x="180" y="80" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="60" cy="60" r="4" fill="currentColor"/>
-              <circle cx="340" cy="140" r="4" fill="var(--color-accent)"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Électronique</p>
-            <h2 class="project-card__title">Carte de commande pour CNC</h2>
-            <p class="project-card__desc">Carte de contrôle pour piloter les moteurs d'une fraiseuse numérique. Conception du PCB, routage des pistes de puissance et tests de signal.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>PCB</li>
-              <li>Soudure CMS</li>
-              <li>Microcontrôleur</li>
-            </ul>
-            <a href="#dossier-cnc" class="project-card__link">Dossier technique</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="electronique">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <rect x="20" y="20" width="360" height="160" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M40 60 H120 V100 H200 V60 H280 V140 H360" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M40 140 H80 V100 H160 V140 H240 V100 H320 V140 H360" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <rect x="180" y="80" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="60" cy="60" r="4" fill="currentColor"/>
-              <circle cx="340" cy="140" r="4" fill="var(--color-accent)"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Électronique</p>
-            <h2 class="project-card__title">Alimentation stabilisée de laboratoire</h2>
-            <p class="project-card__desc">Module d'alimentation réglable avec régulation de tension et protection contre les courts-circuits. Montage sur plaque d'essai puis intégration dans un boîtier.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>Régulateur</li>
-              <li>Soudure THT</li>
-              <li>Mesure</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="impression-3d">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M200 40 L280 80 L280 160 L200 200 L120 160 L120 80 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M200 40 L200 120 M120 80 L200 120 L280 80 M200 120 L200 200" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <path d="M160 100 L200 80 L240 100 L200 120 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Impression 3D</p>
-            <h2 class="project-card__title">Boîtier pour module électronique</h2>
-            <p class="project-card__desc">Boîtier imprimé en FDM pour protéger un module de commande. Modélisation CAO, ajustement des tolérances et montage des inserts.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>CAO</li>
-              <li>Impression FDM</li>
-              <li>Inserts</li>
-            </ul>
-            <a href="#dossier-boitier" class="project-card__link">Dossier technique</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="impression-3d">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M200 40 L280 80 L280 160 L200 200 L120 160 L120 80 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M200 40 L200 120 M120 80 L200 120 L280 80 M200 120 L200 200" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <path d="M160 100 L200 80 L240 100 L200 120 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Impression 3D</p>
-            <h2 class="project-card__title">Support de capteurs</h2>
-            <p class="project-card__desc">Support imprimé pour fixer des capteurs sur un montage mobile. Conception paramétrique et impression en résine pour les pièces fines.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>CAO</li>
-              <li>Résine</li>
-              <li>Supports</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="modding">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M120 80 C120 60 140 40 160 40 H240 C260 40 280 60 280 80 V120 C280 140 260 160 240 160 H160 C140 160 120 140 120 120 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="160" cy="100" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="240" cy="100" r="12" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <path d="M180 140 H220" stroke="currentColor" stroke-width="2"/>
-              <path d="M200 140 V160" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Modding</p>
-            <h2 class="project-card__title">Console portable</h2>
-            <p class="project-card__desc">Modification d'une console pour l'intégrer dans un boîtier imprimé. Câblage, gestion de l'alimentation et adaptation de l'affichage.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>Soudure</li>
-              <li>Câblage</li>
-              <li>Impression 3D</li>
-            </ul>
-            <a href="#dossier-console" class="project-card__link">Dossier technique</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="modding">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M120 80 C120 60 140 40 160 40 H240 C260 40 280 60 280 80 V120 C280 140 260 160 240 160 H160 C140 160 120 140 120 120 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="160" cy="100" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="240" cy="100" r="12" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <path d="M180 140 H220" stroke="currentColor" stroke-width="2"/>
-              <path d="M200 140 V160" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Modding</p>
-            <h2 class="project-card__title">Réparation de manette</h2>
-            <p class="project-card__desc">Remplacement des sticks et nettoyage des contacts. Diagnostic de la panne et remise en état de la manette.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>Soudure</li>
-              <li>Diagnostic</li>
-              <li>Micro-soudure</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="programmation">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M120 60 L80 100 L120 140" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M280 60 L320 100 L280 140" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M220 40 L180 160" stroke="var(--color-accent)" stroke-width="2"/>
-              <rect x="140" y="80" width="120" height="40" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M160 100 H240" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Programmation</p>
-            <h2 class="project-card__title">Station météo</h2>
-            <p class="project-card__desc">Programme de collecte de données de capteurs et affichage sur écran. Structure modulaire du code et gestion des erreurs.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>C</li>
-              <li>Capteurs</li>
-              <li>Écran</li>
-            </ul>
-            <a href="#dossier-meteo" class="project-card__link">Dossier technique</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="programmation">
-          <div class="project-card__visual">
-            <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-              <path d="M120 60 L80 100 L120 140" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M280 60 L320 100 L280 140" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M220 40 L180 160" stroke="var(--color-accent)" stroke-width="2"/>
-              <rect x="140" y="80" width="120" height="40" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M160 100 H240" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="project-card__content">
-            <p class="project-card__category">Programmation</p>
-            <h2 class="project-card__title">Bot de test</h2>
-            <p class="project-card__desc">Script de test automatisé pour vérifier les fonctions d'un module. Journalisation des résultats et rapport d'exécution.</p>
-            <ul class="project-card__tech" aria-label="Technologies utilisées">
-              <li>Python</li>
-              <li>Tests</li>
-              <li>Journalisation</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-
-      <section class="dossiers" aria-labelledby="dossiers-title">
-        <h2 id="dossiers-title">Dossiers techniques</h2>
-
-        <details class="dossier" id="dossier-cnc">
-          <summary>Dossier technique — Carte de commande pour CNC</summary>
-          <div class="dossier__content">
-            <p>Ce dossier regroupe les éléments nécessaires pour reprendre le projet : schéma de câblage, liste de composants et structure du firmware.</p>
-            <ul>
-              <li>Schéma de câblage des entrées et sorties</li>
-              <li>Liste de composants et références</li>
-              <li>Structure du firmware et points de test</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="dossier" id="dossier-boitier">
-          <summary>Dossier technique — Boîtier pour module électronique</summary>
-          <div class="dossier__content">
-            <p>Ce dossier contient les fichiers de modélisation et les paramètres d'impression utilisés pour produire le boîtier.</p>
-            <ul>
-              <li>Fichiers CAO du boîtier et du couvercle</li>
-              <li>Paramètres d'impression FDM</li>
-              <li>Plan de montage des inserts</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="dossier" id="dossier-console">
-          <summary>Dossier technique — Console portable</summary>
-          <div class="dossier__content">
-            <p>Ce dossier décrit les étapes de modification, le câblage et les adaptations mécaniques réalisées sur la console.</p>
-            <ul>
-              <li>Schéma de câblage et repérage des connexions</li>
-              <li>Liste des pièces imprimées</li>
-              <li>Notes d'assemblage et précautions</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="dossier" id="dossier-meteo">
-          <summary>Dossier technique — Station météo</summary>
-          <div class="dossier__content">
-            <p>Ce dossier présente la structure du programme, la configuration des capteurs et les modalités de test.</p>
-            <ul>
-              <li>Arborescence du code source</li>
-              <li>Configuration des capteurs et de l'écran</li>
-              <li>Procédure de test et journalisation</li>
-            </ul>
-          </div>
-        </details>
-      </section>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>Association étudiante — électronique, modding, informatique et fabrication numérique.</p>
-    <nav aria-label="Navigation de pied de page">
-      <ul class="footer-nav" role="list">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="projets.html">Projets</a></li>
-        <li><a href="rejoindre.html">Rejoindre</a></li>
-      </ul>
-    </nav>
-  </div>
-</footer>
+  <main id="main-content">
+    <section class="projects-hero">
+      <div class="container">
+        <span class="hero-label">REVUE DES TRAVAUX D'ATELIER</span>
+        <h1 style="font-family: var(--font-heading); font-size: 2.25rem; color: var(--color-green); margin: 0.5rem 0 1rem 0;">Domaines d'intervention et réalisations techniques</h1>
+        <p style="font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0;">
+          L'association intervient directement sur les cartes électroniques et le matériel informatique pour traiter les pannes à la source. Voici le détail concret des opérations réalisées au siège de Provin.
+        </p>
+      </div>
+    </section>
 
-<script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  const filterStatus = document.getElementById('filter-status');
+    <!-- DOMAINE 1 -->
+    <section class="project-domain">
+      <div class="container">
+        <div class="domain-grid">
+          <div>
+            <div class="domain-header">
+              <span class="domain-code">[ DOMAINE 01 // MATÉRIEL DE JEU ]</span>
+              <h2 class="domain-title">Consoles et périphériques de jeu</h2>
+              <p class="domain-intro">
+                Remise en état fonctionnel de consoles modernes et rétro sujettes à l'usure mécanique, au blocage des mécanismes de lecture ou aux pannes d'alimentation.
+              </p>
+            </div>
 
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
+            <ul class="project-ops">
+              <li>
+                <span class="op-label">PlayStation 5</span>
+                <p class="op-desc">Diagnostic précis des pannes de lecture, dépannage des mécanismes d'éjection et remplacement des blocs optiques défectueux.</p>
+              </li>
+              <li>
+                <span class="op-label">Manettes DualSense</span>
+                <p class="op-desc">Démontage complet, remplacement des mécanismes de joysticks sujets au glissement de centrage (drift) et recalibration logicielle des axes.</p>
+              </li>
+              <li>
+                <span class="op-label">PlayStation 4</span>
+                <p class="op-desc">Opérations de maintenance thermique préventive, remplacement des pâtes et tampons thermiques, et réparation des blocs d'alimentation internes.</p>
+              </li>
+              <li>
+                <span class="op-label">Nintendo rétro &amp; GBC</span>
+                <p class="op-desc">Restauration de consoles rétro (NES, Super Nintendo, Nintendo 64), remplacement des condensateurs usés (recapping) et installation d'écrans rétroéclairés sur Game Boy Color.</p>
+              </li>
+            </ul>
+          </div>
 
-      filterButtons.forEach((btn) => {
-        const isActive = btn === button;
-        btn.classList.toggle('is-active', isActive);
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
+          <aside class="schematic-box">
+            <svg viewBox="0 0 200 160" fill="none" stroke="#142E22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="20" y="30" width="160" height="100" rx="4" stroke="#142E22" stroke-dasharray="4 4" />
+              <circle cx="60" cy="80" r="18" />
+              <path d="M60 68v24M48 80h24" />
+              <circle cx="135" cy="70" r="6" fill="#B86222" stroke="none" />
+              <circle cx="150" cy="85" r="6" />
+              <circle cx="120" cy="85" r="6" />
+              <circle cx="135" cy="100" r="6" />
+              <path d="M85 110h30" />
+            </svg>
+            <div class="schematic-caption">SCHÉMA 01 : ANALYSE DES ENTRÉES ET COMMANDES</div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-      let visibleCount = 0;
+    <!-- DOMAINE 2 -->
+    <section class="project-domain">
+      <div class="container">
+        <div class="domain-grid">
+          <div>
+            <div class="domain-header">
+              <span class="domain-code">[ DOMAINE 02 // IMPLANTATION &amp; SOUDURE ]</span>
+              <h2 class="domain-title">Micro-soudure et circuits imprimés (PCB)</h2>
+              <p class="domain-intro">
+                Interventions de précision sous microscope binoculaire pour rétablir les liaisons électriques altérées et remplacer les composants de surface endommagés.
+              </p>
+            </div>
 
-      projectCards.forEach((card) => {
-        const show = filter === 'all' || card.dataset.category === filter;
-        card.hidden = !show;
-        if (show) {
-          visibleCount += 1;
-        }
-      });
+            <ul class="project-ops">
+              <li>
+                <span class="op-label">Recherche de pannes</span>
+                <p class="op-desc">Test d'impédance des lignes d'alimentation sur carte mère, détection des courts-circuits par caméra thermique et injection de courant ciblée.</p>
+              </li>
+              <li>
+                <span class="op-label">Connecteurs HDMI / USB-C</span>
+                <p class="op-desc">Dessoudage à air chaud des ports détériorés, nettoyage des plages d'accueil et soudure de connecteurs neufs sur consoles et ordinateurs.</p>
+              </li>
+              <li>
+                <span class="op-label">Composants CMS</span>
+                <p class="op-desc">Remplacement de puces de gestion d'énergie (PMIC), condensateurs, résistances et puces réseau au format CMS (Composants Montés en Surface).</p>
+              </li>
+              <li>
+                <span class="op-label">Pistes &amp; cartes sur mesure</span>
+                <p class="op-desc">Reconstruction de pistes coupées à l'aide de fil émaillé sous vernis épargne UV, et conception de circuits imprimés simples pour l'adaptation de sous-ensembles.</p>
+              </li>
+            </ul>
+          </div>
 
-      filterStatus.textContent = visibleCount + ' projet' + (visibleCount > 1 ? 's' : '') + ' affiché' + (visibleCount > 1 ? 's' : '') + '.';
-    });
-  });
-</script>
+          <aside class="schematic-box">
+            <svg viewBox="0 0 200 160" fill="none" stroke="#142E22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="40" y="40" width="120" height="80" />
+              <path d="M10 80h30M160 80h30M100 10v30M100 120v30" />
+              <circle cx="70" cy="65" r="3" fill="#142E22" />
+              <circle cx="130" cy="65" r="3" fill="#142E22" />
+              <circle cx="70" cy="95" r="3" fill="#142E22" />
+              <circle cx="130" cy="95" r="3" fill="#142E22" />
+              <path d="M70 65h60v30H70z" stroke="#B86222" />
+            </svg>
+            <div class="schematic-caption">SCHÉMA 02 : BOÎTIER CMS ET RECONSTRUCTION</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOMAINE 3 -->
+    <section class="project-domain">
+      <div class="container">
+        <div class="domain-grid">
+          <div>
+            <div class="domain-header">
+              <span class="domain-code">[ DOMAINE 03 // INFRASTRUCTURE &amp; CALCUL ]</span>
+              <h2 class="domain-title">Informatique et serveurs</h2>
+              <p class="domain-intro">
+                Reconditionnement d'équipements informatiques déclassés pour prolonger leur durée de vie opérationnelle dans un cadre d'auto-hébergement ou d'usage associatif.
+              </p>
+            </div>
+
+            <ul class="project-ops">
+              <li>
+                <span class="op-label">PC fixes et ordinateurs</span>
+                <p class="op-desc">Diagnostic matériel complet, test des barrettes de mémoire RAM, remplacement des blocs de tension hors tolérance et réassemblage propre.</p>
+              </li>
+              <li>
+                <span class="op-label">Serveurs de benne</span>
+                <p class="op-desc">Récupération de serveurs d'entreprise et stations de travail destinés au rebut, qualification des contrôleurs de stockage et remplacement des ventilateurs défaillants.</p>
+              </li>
+              <li>
+                <span class="op-label">Auto-hébergement local</span>
+                <p class="op-desc">Configuration matérielle optimisée pour exécuter des services réseau locaux peu gourmands en énergie sans nécessiter d'investir dans du matériel neuf.</p>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="schematic-box">
+            <svg viewBox="0 0 200 160" fill="none" stroke="#142E22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="30" y="20" width="140" height="30" rx="2" />
+              <rect x="30" y="65" width="140" height="30" rx="2" />
+              <rect x="30" y="110" width="140" height="30" rx="2" />
+              <circle cx="50" cy="35" r="3" fill="#B86222" />
+              <circle cx="50" cy="80" r="3" fill="#B86222" />
+              <circle cx="50" cy="125" r="3" fill="#B86222" />
+              <path d="M140 35h15M140 80h15M140 125h15" />
+            </svg>
+            <div class="schematic-caption">SCHÉMA 03 : UNITÉS DE STOCKAGE ET BAIES</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOMAINE 4 -->
+    <section class="project-domain">
+      <div class="container">
+        <div class="domain-grid">
+          <div>
+            <div class="domain-header">
+              <span class="domain-code">[ DOMAINE 04 // PROTOCOLLO &amp; MODDING ]</span>
+              <h2 class="domain-title">Systèmes embarqués et modding</h2>
+              <p class="domain-intro">
+                Détournement d'usage et ajout de fonctionnalités modernes sur des appareils existants grâce à l'intégration de microcontrôleurs et d'électronique programmable.
+              </p>
+            </div>
+
+            <ul class="project-ops">
+              <li>
+                <span class="op-label">ESP32 &amp; Raspberry Pi</span>
+                <p class="op-desc">Prototypage de cartes de contrôle dédiées à la gestion de capteurs, aux relèves de mesures environnementales ou à l'automatisation locale.</p>
+              </li>
+              <li>
+                <span class="op-label">Assistants vocaux locaux</span>
+                <p class="op-desc">Mise en place de modules matériels de traitement vocal en réseau local, garantissant le traitement des ordres sans dépendance aux serveurs distants.</p>
+              </li>
+              <li>
+                <span class="op-label">Éclairage adressable</span>
+                <p class="op-desc">Intégration de rubans LED à contrôle individuel (WS2812B) avec circuits de régulation d'alimentation et microcontrôleurs de gestion du signal.</p>
+              </li>
+              <li>
+                <span class="op-label">Modernisation d'équipements</span>
+                <p class="op-desc">Ajout d'entrées d'alimentation USB-C, de récepteurs audio sans fil ou d'affichages numériques sur du matériel ancien dépourvu de ces connectiques.</p>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="schematic-box">
+            <svg viewBox="0 0 200 160" fill="none" stroke="#142E22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 80 Q 50 20, 80 80 T 140 80 T 200 80" stroke="#142E22" stroke-width="2" />
+              <path d="M20 110h160" stroke="#B86222" stroke-dasharray="6 3" />
+              <circle cx="80" cy="80" r="4" fill="#142E22" />
+              <circle cx="140" cy="80" r="4" fill="#142E22" />
+            </svg>
+            <div class="schematic-caption">SCHÉMA 04 : SIGNAL OSCILLOSCOPE ET MODULATION</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDEAU D'ACTION -->
+    <section class="action-banner">
+      <div class="container">
+        <div class="action-inner">
+          <div>
+            <h2 class="action-title">Un appareil en panne ou un projet d'adaptation ?</h2>
+            <p class="action-text">Nous étudions la faisabilité technique de chaque dossier avant toute prise en charge à l'atelier.</p>
+          </div>
+          <a href="contact.html" class="btn btn-copper">Soumettre une demande</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <p class="footer-brand">Savetronik – association à but non lucratif</p>
+          <p class="footer-address">
+            50 rue Camille Desmoulins, 59185 Provin<br>
+            Accueil uniquement sur rendez‑vous.
+          </p>
+        </div>
+
+        <div>
+          <span class="footer-nav-title">Arborescence</span>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="avantages.html">Avantages</a></li>
+            <li><a href="atelier.html">Atelier et dons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Savetronik – Tous droits réservés.</span>
+        <span>Association déclarée en septembre 2026 (Loi 1901)</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
