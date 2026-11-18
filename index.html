@@ -1,484 +1,227 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atelier d'électronique étudiante : projets, ateliers, adhésion</title>
-<meta name="description" content="Association étudiante d'électronique et de fabrication numérique : circuits imprimés, soudure, modding, impression 3D et microcontrôleurs. Projets des membres, ateliers et adhésion.">
-<meta name="theme-color" content="#0A0C0F">
-<meta name="color-scheme" content="dark">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Association étudiante spécialisée électronique, modding, informatique et fabrication numérique. Projets PCB, soudure, impression 3D, programmation, modding de consoles.">
+<title>Association Electronique & Fabrication Numérique</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a href="#main" class="skip-link">Aller au contenu principal</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <svg class="brand-mark" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/>
-        <path d="M8 8h4.5L16 12l-3.5 4H8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="brand-text">
-        <span class="brand-strong">Atelier d'électronique</span>
-        <span class="brand-soft">&amp; fabrication numérique</span>
-      </span>
-    </a>
-
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      <span>Menu</span>
-    </button>
-
-    <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
-      <ul>
-        <li><a href="index.html" aria-current="page">Accueil</a></li>
-        <li><a href="about.html">À propos</a></li>
-        <li><a href="activities.html">Activités</a></li>
-        <li><a href="projects.html">Projets</a></li>
-        <li><a href="events.html">Événements</a></li>
-        <li><a href="join.html">Adhésion</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<header class="site-header" role="banner">
+  <nav class="nav" aria-label="Navigation principale">
+    <svg class="nav-logo" aria-hidden="true" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 12h8M12 16h8M12 20h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <ul class="nav-list" role="list">
+      <li><a href="#accueil" class="nav-link">Accueil</a></li>
+      <li><a href="#expertises" class="nav-link">Expertises</a></li>
+      <li><a href="#projets" class="nav-link">Projets</a></li>
+      <li><a href="#ateliers" class="nav-link">Ateliers</a></li>
+      <li><a href="#rejoindre" class="nav-link">Rejoindre</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main id="main">
+<main id="main" role="main">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <h1 class="hero-title" id="hero-title">Un atelier d'électronique ouvert aux étudiants</h1>
-      <p class="hero-sub">Circuits imprimés, soudure, impression 3D et microcontrôleurs. On arrive avec une idée, on repart avec un montage qui fonctionne.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="join.html">
-          Rejoignez-nous
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+  <!-- SECTION 1 : PREMIER ÉCRAN - CIRCUIT INTERACTIF -->
+  <section id="accueil" class="section hero-circuit" aria-labelledby="hero-title" data-circuit>
+    <div class="container" style="position:relative;z-index:10;text-align:center;max-width:400px;">
+       <h1 id="hero-title" class="visually-hidden">Association Electronique & Fabrication Numérique</h1>
+       <p class="section-lead" style="margin-bottom:var(--space-2xl);">Un laboratoire vivant pour makers, étudiants et passionnés.</p>
     </div>
 
-    <div class="hero-figure">
-      <svg class="schematic" viewBox="0 0 520 420" role="img" aria-labelledby="schema-title">
-        <title id="schema-title">Schéma d'un microcontrôleur relié à quatre broches d'alimentation et de données</title>
+    <!-- SVG Circuit Board Background -->
+    <svg class="hero-circuit__svg" viewBox="0 0 400 400" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <path id="trace1" d="M200 200 L200 80 A120 120 0 0 1 80 200" stroke-dasharray="300" stroke-dashoffset="300"/>
+        <path id="trace2" d="M200 200 L320 200 A120 120 0 0 1 200 320" stroke-dasharray="300" stroke-dashoffset="300"/>
+        <path id="trace3" d="M200 200 L80 200 A120 120 0 0 0 200 80" stroke-dasharray="300" stroke-dashoffset="300"/>
+      </defs>
+      <!-- Traces -->
+      <use class="hero-circuit__trace" href="#trace1" style="--trace-length: 300;"/>
+      <use class="hero-circuit__trace" href="#trace2" style="--trace-length: 300;"/>
+      <use class="hero-circuit__trace" href="#trace3" style="--trace-length: 300;"/>
+      <!-- Nœuds -->
+      <g class="hero-circuit__node-group" style="transform:translate(200px, 80px);">
+        <circle class="hero-circuit__node" r="24" />
+        <text class="hero-circuit__node-label" y="-36">Nos expertises</text>
+      </g>
+      <g class="hero-circuit__node-group" style="transform:translate(320px, 200px);">
+        <circle class="hero-circuit__node" r="24" />
+        <text class="hero-circuit__node-label" x="36">Projets</text>
+      </g>
+      <g class="hero-circuit__node-group" style="transform:translate(80px, 200px);">
+        <circle class="hero-circuit__node" r="24" />
+        <text class="hero-circuit__node-label" x="-36" text-anchor="end">Ateliers</text>
+      </g>
+    </svg>
 
-        <rect class="s-body" x="205" y="155" width="150" height="110" rx="8"/>
-        <rect class="s-inner" x="228" y="178" width="104" height="64" rx="4"/>
-        <circle class="s-dot" cx="244" cy="194" r="2.5"/>
-        <circle class="s-dot" cx="316" cy="226" r="2.5"/>
-
-        <rect class="s-pad" x="197" y="176" width="10" height="10" rx="2"/>
-        <rect class="s-pad" x="197" y="234" width="10" height="10" rx="2"/>
-        <rect class="s-pad" x="353" y="176" width="10" height="10" rx="2"/>
-        <rect class="s-pad" x="353" y="234" width="10" height="10" rx="2"/>
-
-        <path class="s-trace s-trace--accent d1" pathLength="1" d="M197 181 H150 V104 H104"/>
-        <path class="s-trace d2" pathLength="1" d="M197 239 H150 V316 H104"/>
-        <path class="s-trace d3" pathLength="1" d="M363 181 H410 V104 H456"/>
-        <path class="s-trace d4" pathLength="1" d="M363 239 H410 V316 H456"/>
-
-        <circle class="s-term" cx="96" cy="104" r="8"/>
-        <circle class="s-term" cx="96" cy="316" r="8"/>
-        <circle class="s-term" cx="464" cy="104" r="8"/>
-        <circle class="s-term" cx="464" cy="316" r="8"/>
-
-        <text class="s-lbl" x="96" y="76" text-anchor="middle">3V3</text>
-        <text class="s-lbl" x="96" y="352" text-anchor="middle">GND</text>
-        <text class="s-lbl" x="464" y="76" text-anchor="middle">SDA</text>
-        <text class="s-lbl" x="464" y="352" text-anchor="middle">SCL</text>
-      </svg>
-    </div>
+    <!-- Puce Centrale / CTA -->
+    <button class="hero-circuit__cta" id="cta-rejoindre" aria-label="Rejoindre l'association" type="button">
+      <span class="hero-circuit__cta-initial">Rejoindre</span>
+      <span class="hero-circuit__cta-text">Rejoindre l'association</span>
+    </button>
   </section>
 
-  <!-- ============ PHILOSOPHIE ============ -->
-  <section class="section" aria-labelledby="philo-title">
-    <div class="philo-grid">
-      <div class="philo-intro">
-        <h2 class="section-title" id="philo-title">Notre philosophie</h2>
-        <p class="philo-text">Nous réunissons des étudiants qui veulent comprendre comment les objets fonctionnent, les réparer ou en construire d'autres. L'atelier fournit l'outillage et les composants de base ; les membres apportent leurs projets et leur temps.</p>
-      </div>
-
-      <ol class="philo-list">
-        <li>
-          <span class="philo-idx" aria-hidden="true">01</span>
-          <p>Un local équipé : fers à souder, imprimante 3D, alimentations et composants de base.</p>
+  <!-- SECTION 2 : NOS EXPERTISES -->
+  <section id="expertises" class="section" aria-labelledby="expertises-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="expertises-title" class="section-title">Nos expertises</h2>
+        <p class="section-lead">Quatre piliers techniques pour couvrir l'ensemble du cycle de création, du composant à l'objet fini.</p>
+      </header>
+      <ul class="expertises-list" role="list">
+        <li class="expertise-item">
+          <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M24 4 L24 12 M24 36 L24 44 M4 24 L12 24 M36 24 L44 24 M10 10 L16 16 M32 32 L38 38 M38 16 L32 22 M16 32 L22 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <div class="expertise-content">
+            <h3 class="expertise-title">Électronique & PCB</h3>
+            <p class="expertise-desc">Conception de circuits imprimés, soudure CMS/THT, réparation, analyse de signaux, alimentation et instrumentation.</p>
+          </div>
         </li>
-        <li>
-          <span class="philo-idx" aria-hidden="true">02</span>
-          <p>On apprend en manipulant, avec l'aide de ceux qui ont déjà pratiqué.</p>
+        <li class="expertise-item">
+          <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="8" y="10" width="32" height="28" rx="2" stroke="currentColor" stroke-width="2"/><path d="M14 18h20 M14 24h14 M14 30h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="expertise-content">
+            <h3 class="expertise-title">Modding & Rétro-ingénierie</h3>
+            <p class="expertise-desc">Modification de consoles, flashage, remplacement de composants, création de mods custom, préservation du matériel vintage.</p>
+          </div>
         </li>
-        <li>
-          <span class="philo-idx" aria-hidden="true">03</span>
-          <p>Les schémas, le code et les montages sont documentés et partagés.</p>
+        <li class="expertise-item">
+          <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M12 36 L16 12 L32 12 L36 36 Z M16 12 L18 28 M24 12 L24 28 M30 12 L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="30" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="expertise-content">
+            <h3 class="expertise-title">Fabrication 3D & Usinage</h3>
+            <p class="expertise-desc">Impression 3D FDM/Résine, modélisation CAO, découpe laser, fraisage CNC, prototypage rapide et outillage.</p>
+          </div>
         </li>
-        <li>
-          <span class="philo-idx" aria-hidden="true">04</span>
-          <p>La sécurité passe avant : chacun est formé avant d'utiliser les machines.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ ACTIVITÉS ============ -->
-  <section class="section activities" aria-labelledby="activities-title">
-    <div class="activities-inner">
-      <h2 class="section-title" id="activities-title">Nos activités</h2>
-
-      <ul class="activity-list">
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="8" cy="9" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="16" cy="15" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M8 9h4.2A3.8 3.8 0 0 1 16 12.8v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="activity-name">Conception de circuits imprimés (PCB)</span>
-        </li>
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M3.5 20.5 8 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="m8 16 7.5-7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="m15.5 8.5 2-2 2.5 2.5-2 2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M18.4 14.6c1 1.1 1.5 1.9 1.5 2.5a1.6 1.6 0 0 1-3.2 0c0-.6.6-1.4 1.7-2.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-          <span class="activity-name">Soudure et réparation</span>
-        </li>
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M7.5 12h3M9 10.5v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="15.5" cy="10.7" r="1.1" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="17.6" cy="13.3" r="1.1" fill="none" stroke="currentColor" stroke-width="1.4"/>
-          </svg>
-          <span class="activity-name">Modding de consoles et de périphériques</span>
-        </li>
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 3v7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M8.5 10.5h7l-1.4 4h-4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M6 18h12M6 15h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="activity-name">Impression 3D de pièces et de prototypes</span>
-        </li>
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="7" y="7" width="10" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="activity-name">Programmation de microcontrôleurs</span>
-        </li>
-        <li>
-          <svg class="activity-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="18" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M8.2 6h7.6M7.2 8l3.6 8M16.8 8l-3.6 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="activity-name">Projets DIY et prototypage</span>
+        <li class="expertise-item">
+          <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 20h16 M16 26h12 M16 32h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="expertise-content">
+            <h3 class="expertise-title">Programmation Embarquée</h3>
+            <p class="expertise-desc">Microcontrôleurs (STM32, ESP32, AVR), RTOS, drivers bas niveau, communication (I2C, SPI, UART, CAN, WiFi/BLE), firmware.</p>
+          </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ PROJETS PHARES ============ -->
-  <section class="section" aria-labelledby="projects-title">
-    <div class="projects-head">
-      <h2 class="section-title" id="projects-title">Projets phares</h2>
-      <p>Trois projets menés par les membres, du premier schéma au montage final.</p>
-    </div>
-
-    <div class="slider">
-      <div class="slider-track" id="slider-track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Projets phares">
-
-        <article class="slide" aria-roledescription="diapositive" aria-label="1 sur 3">
-          <div class="slide-copy">
-            <p class="slide-index" aria-hidden="true">01</p>
-            <h3 class="slide-title">Station météo connectée</h3>
-            <p class="slide-desc">Capteurs de température et d'humidité, écran LCD et alerte de gel envoyée par Wi-Fi.</p>
+  <!-- SECTION 3 : PROJETS PHARES -->
+  <section id="projets" class="section" aria-labelledby="projets-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="projets-title" class="section-title">Projets phares</h2>
+        <p class="section-lead">Une sélection de réalisations membres illustrant la diversité des compétences.</p>
+      </header>
+      <div class="projects-carousel" role="region" aria-label="Carousel des projets" data-carousel>
+        <!-- Slide 1 -->
+        <article class="project-slide">
+          <div class="project-slide__visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" stroke="currentColor" stroke-width="3"/><path d="M50 10 L50 90 M10 30 L90 70 M90 30 L10 70" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
           </div>
-          <div class="slide-figure">
-            <svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">
-              <rect class="pf-line" x="62" y="42" width="116" height="96" rx="8"/>
-              <rect class="pf-soft" x="78" y="58" width="84" height="44" rx="3"/>
-              <path class="pf-soft" d="M86 72h34M86 84h20"/>
-              <path class="pf-accent" d="M132 88v-8M140 88v-14M148 88v-20"/>
-              <path class="pf-line" d="M120 42V28"/>
-              <circle class="pf-accent" cx="120" cy="24" r="3"/>
-              <path class="pf-line" d="M86 138v12M154 138v12M72 150h96"/>
-            </svg>
+          <div class="project-slide__content">
+            <span class="project-slide__category">PCB / RF</span>
+            <h3 class="project-slide__title">Balise LoRaWAN Basse Conso</h3>
+            <a href="#" class="project-slide__link link">Voir le projet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l6 7-6 7"/></svg></a>
           </div>
         </article>
-
-        <article class="slide" aria-roledescription="diapositive" aria-label="2 sur 3">
-          <div class="slide-copy">
-            <p class="slide-index" aria-hidden="true">02</p>
-            <h3 class="slide-title">Console rétro modifiée</h3>
-            <p class="slide-desc">Alimentation refaite, refroidissement revu et sortie vidéo remplacée pour brancher la console sur un écran récent.</p>
+        <!-- Slide 2 -->
+        <article class="project-slide">
+          <div class="project-slide__visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none"><rect x="15" y="20" width="70" height="60" rx="5" stroke="currentColor" stroke-width="3"/><circle cx="50" cy="50" r="18" stroke="currentColor" stroke-width="2"/><path d="M50 32v18M41 50h18" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="slide-figure">
-            <svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">
-              <rect class="pf-line" x="36" y="58" width="168" height="80" rx="22"/>
-              <path class="pf-line" d="M72 86v22M61 97h22"/>
-              <circle class="pf-accent" cx="148" cy="90" r="6"/>
-              <circle class="pf-soft" cx="166" cy="104" r="6"/>
-              <path class="pf-soft" d="M142 122h30"/>
-              <path class="pf-line" d="M36 84c-14 0-20 8-20 18"/>
-            </svg>
+          <div class="project-slide__content">
+            <span class="project-slide__category">Modding</span>
+            <h3 class="project-slide__title">Game Boy DMG Backlight IPS</h3>
+            <a href="#" class="project-slide__link link">Voir le projet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l6 7-6 7"/></svg></a>
           </div>
         </article>
-
-        <article class="slide" aria-roledescription="diapositive" aria-label="3 sur 3">
-          <div class="slide-copy">
-            <p class="slide-index" aria-hidden="true">03</p>
-            <h3 class="slide-title">Prototype de drone</h3>
-            <p class="slide-desc">Châssis imprimé en 3D, contrôleur de vol de récupération et capteur de distance pour les tests en intérieur.</p>
+        <!-- Slide 3 -->
+        <article class="project-slide">
+          <div class="project-slide__visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M30 70 L50 20 L70 70 Z" stroke="currentColor" stroke-width="3"/><path d="M50 20 L50 70 M30 70 L70 70" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><circle cx="50" cy="45" r="8" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="slide-figure">
-            <svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">
-              <path class="pf-line" d="M96 78 62 52M144 78l34-26M96 102l-34 26M144 102l34 26"/>
-              <circle class="pf-line" cx="56" cy="46" r="15"/>
-              <circle class="pf-line" cx="184" cy="46" r="15"/>
-              <circle class="pf-line" cx="56" cy="134" r="15"/>
-              <circle class="pf-line" cx="184" cy="134" r="15"/>
-              <rect class="pf-line" x="94" y="70" width="52" height="40" rx="9"/>
-              <path class="pf-accent" d="M120 70V58"/>
-              <circle class="pf-accent" cx="120" cy="55" r="3"/>
-              <circle class="pf-soft" cx="120" cy="118" r="6"/>
-            </svg>
+          <div class="project-slide__content">
+            <span class="project-slide__category">Impression 3D</span>
+            <h3 class="project-slide__title">Bras Robotique 6 Axes Open Source</h3>
+            <a href="#" class="project-slide__link link">Voir le projet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l6 7-6 7"/></svg></a>
           </div>
         </article>
-
+        <!-- Slide 4 -->
+        <article class="project-slide">
+          <div class="project-slide__visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none"><rect x="20" y="20" width="60" height="60" rx="4" stroke="currentColor" stroke-width="3"/><path d="M35 40 L65 60 M65 40 L35 60" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="project-slide__content">
+            <span class="project-slide__category">Embarqué</span>
+            <h3 class="project-slide__title">Analyseur Logique 8 Canaux USB</h3>
+            <a href="#" class="project-slide__link link">Voir le projet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l6 7-6 7"/></svg></a>
+          </div>
+        </article>
       </div>
-
-      <div class="slider-controls">
-        <button class="icon-btn slider-prev" type="button" aria-label="Projet précédent" aria-controls="slider-track" disabled>
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <div class="slider-progress" aria-hidden="true">
-          <span class="slider-progress-bar"></span>
-        </div>
-
-        <button class="icon-btn slider-next" type="button" aria-label="Projet suivant" aria-controls="slider-track">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+      <div class="carousel-nav" aria-label="Navigation carousel">
+        <button class="carousel-btn" aria-label="Projet précédent" data-carousel-prev><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="carousel-btn" aria-label="Projet suivant" data-carousel-next><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
   </section>
 
-  <!-- ============ ÉVÉNEMENTS ============ -->
-  <section class="section" aria-labelledby="events-title">
-    <h2 class="section-title" id="events-title">Événements &amp; ateliers</h2>
-    <p class="events-intro">Les séances ont lieu à l'atelier, sur inscription, dans la limite des postes disponibles.</p>
-
-    <ul class="event-list">
-      <li>
-        <span class="event-date">15 nov.</span>
-        <div>
-          <a class="event-name" href="events.html">Atelier soudure</a>
-          <p class="event-desc">Premier montage pour les débutants : repérage des composants, gestes de base et contrôle du résultat.</p>
-        </div>
-      </li>
-      <li>
-        <span class="event-date">22 nov.</span>
-        <div>
-          <a class="event-name" href="events.html">Impression 3D</a>
-          <p class="event-desc">Préparer un fichier, régler la machine et lancer une impression sans casser la pièce au démoulage.</p>
-        </div>
-      </li>
-    </ul>
-
-    <div class="events-foot">
-      <a class="link-line" href="events.html">
-        Consulter le calendrier
-        <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+  <!-- SECTION 4 : ATELIERS & ÉVÉNEMENTS -->
+  <section id="ateliers" class="section" aria-labelledby="ateliers-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="ateliers-title" class="section-title">Ateliers & événements</h2>
+        <p class="section-lead">Rencontres régulières pour apprendre, partager et construire ensemble. Ouverts à tous les niveaux.</p>
+      </header>
+      <ul class="events-list" role="list">
+        <li class="event-item">
+          <time class="event-date" datetime="2025-01-15">15 Jan</time>
+          <div class="event-details">
+            <h3 class="event-title">Initiation Soudure CMS</h3>
+            <p class="event-desc">Apprenez les bases de la soudure à l'air chaud et au fer sur composants 0603, QFP, BGA. Kits fournis.</p>
+          </div>
+        </li>
+        <li class="event-item">
+          <time class="event-date" datetime="2025-02-01">01 Fév</time>
+          <div class="event-details">
+            <h3 class="event-title">KiCad : Du Schéma au PCB</h3>
+            <p class="event-desc">Workflow complet : capture de schéma, règles de conception, routage, génération Gerber et commande JLCPCB.</p>
+          </div>
+        </li>
+        <li class="event-item">
+          <time class="event-date" datetime="2025-02-20">20 Fév</time>
+          <div class="event-details">
+            <h3 class="event-title">Modding Console : Game Boy Color</h3>
+            <p class="event-desc">Installation écran IPS, remplacement haut-parleur, coque custom, nettoyage contacts. Matériel dispo sur place.</p>
+          </div>
+        </li>
+        <li class="event-item">
+          <time class="event-date" datetime="2025-03-10">10 Mar</time>
+          <div class="event-details">
+            <h3 class="event-title">Impression 3D Avancée : Matériaux Techniques</h3>
+            <p class="event-desc">Nylon, Polycarbonate, Carbone : gestion de l'humidité, enceinte chauffée, adhérence, post-traitement.</p>
+          </div>
+        </li>
+        <li class="event-item">
+          <time class="event-date" datetime="2025-03-25">25 Mar</time>
+          <div class="event-details">
+            <h3 class="event-title">ESP32 & FreeRTOS : Multitâche Temps Réel</h3>
+            <p class="event-desc">Création de tâches, files d'attente, sémaphores, gestion de la mémoire, watchdog, optimisation consommation.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ REJOINDRE ============ -->
-  <section class="join" aria-labelledby="join-title">
-    <div class="join-inner">
-      <div>
-        <h2 class="join-title" id="join-title">Rejoindre l'association</h2>
-        <p class="join-text">L'adhésion est ouverte aux étudiants, débutants comme habitués. Elle donne accès au local, au matériel et aux sessions de formation.</p>
-      </div>
-
-      <div class="join-actions">
-        <a class="btn btn-primary" href="join.html">
-          Faire une demande
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a class="link-line" href="contact.html">Écrire à l'équipe</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-
-    <div>
-      <div class="footer-brand">
-        <svg class="brand-mark" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M8 8h4.5L16 12l-3.5 4H8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-text">
-          <span class="brand-strong">Atelier d'électronique</span>
-          <span class="brand-soft">&amp; fabrication numérique</span>
-        </span>
-      </div>
-
-      <p class="footer-title">Réseaux</p>
-      <ul class="social">
-        <li>
-          <a href="https://www.instagram.com/" rel="noopener noreferrer" aria-label="Instagram">
-            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="17" cy="7" r="1.1" fill="currentColor"/>
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/" rel="noopener noreferrer" aria-label="YouTube">
-            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10.2 9.3 15 12l-4.8 2.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://x.com/" rel="noopener noreferrer" aria-label="X">
-            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <nav aria-label="Plan du site">
-      <p class="footer-title">Plan du site</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="about.html">À propos</a></li>
-        <li><a href="activities.html">Activités</a></li>
-        <li><a href="projects.html">Projets</a></li>
-        <li><a href="events.html">Événements</a></li>
-        <li><a href="join.html">Adhésion</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div>
-      <p class="footer-title">Informations</p>
-      <ul class="footer-links">
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-      </ul>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-(function () {
-  'use strict';
-
-  /* --- Navigation mobile --- */
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.getElementById('primary-nav');
-  var body = document.body;
-
-  function closeNav() {
-    if (!toggle) return;
-    toggle.setAttribute('aria-expanded', 'false');
-    body.classList.remove('nav-open');
-  }
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      body.classList.toggle('nav-open', !isOpen);
-    });
-
-    nav.addEventListener('click', function (event) {
-      if (event.target.closest('a')) closeNav();
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && body.classList.contains('nav-open')) {
-        closeNav();
-        toggle.focus();
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth >= 960) closeNav();
-    });
-  }
-
-  /* --- Carrousel des projets --- */
-  var track = document.getElementById('slider-track');
-  var prevBtn = document.querySelector('.slider-prev');
-  var nextBtn = document.querySelector('.slider-next');
-  var bar = document.querySelector('.slider-progress-bar');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  if (track && prevBtn && nextBtn) {
-
-    function update() {
-      var max = track.scrollWidth - track.clientWidth;
-      var ratio = max > 0 ? track.scrollLeft / max : 0;
-
-      if (bar) {
-        bar.style.transform = 'scaleX(' + (0.34 + ratio * 0.66).toFixed(4) + ')';
-      }
-      prevBtn.disabled = track.scrollLeft <= 4;
-      nextBtn.disabled = max <= 4 || track.scrollLeft >= max - 4;
-    }
-
-    function go(direction) {
-      var step = track.clientWidth;
-      track.scrollBy({
-        left: direction * step,
-        behavior: reduceMotion.matches ? 'auto' : 'smooth'
-      });
-    }
-
-    prevBtn.addEventListener('click', function () { go(-1); });
-    nextBtn.addEventListener('click', function () { go(1); });
-
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-
-    track.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowRight') { event.preventDefault(); go(1); }
-      if (event.key === 'ArrowLeft') { event.preventDefault(); go(-1); }
-    });
-
-    update();
-  }
-})();
-</script>
-
-</body>
-</html>
+  <!-- SECTION 5 : APPEL FINAL / REJOINDRE -->
+  <section id="rejoindre" class="section cta-final" aria-labelledby="cta-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="cta-title" class="section-title">Rejoignez le laboratoire</h2>
+        <p class="section-lead">Accédez aux locaux, machines, stock composants et au réseau d'entraide. Cotisation étudiante modique.</p>
+      </header>
+      <form class="cta-final__form" action="#" method="POST" novalidate>
+        <div class="cta-final__fields">
+          <div class="form-group">
+            <label for="nom" class="form-label">Nom / Pseudo</label>
+            <input type="text" id="nom"
