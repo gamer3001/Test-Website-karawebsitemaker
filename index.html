@@ -1,104 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Savetronik — Réparation et réemploi électronique à Provin, Bauvin et dans la MEL</title>
-<meta name="description" content="Association Savetronik : diagnostic et réparation au composant, reconditionnement et modding de matériel électronique à Provin, Bauvin et dans la Métropole Européenne de Lille.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savetronik – réparation électronique à Provin et MEL</title>
+  <meta name="description" content="Association Savetronik, 1901, réduit les déchets électroniques à Provin, Bauvin et MEL via diagnostic, réparation composant, reconditionnement et modding. Rendez‑vous sur demande.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#" class="marque">
-      <span class="marque-nom">Savetronik</span>
-      <span class="marque-detail">Association Réparation Électronique</span>
-    </a>
-    <nav aria-label="Navigation principale">
-      <ul class="nav-list">
-        <li><a href="projets.html" aria-current="page">Projets</a></li>
-        <li><a href="avantages.html">Avantages</a></li>
-        <li><a href="atelier.html">Atelier</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <!-- Section Hero / Identité -->
-  <section class="hero">
-    <div class="hero-img">
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <path d="M10 10 L190 10 L190 190 L10 190 Z M10 50 L190 50 M10 90 L190 90 M10 130 L190 130 M10 170 L190 170 M50 10 L50 190 M90 10 L90 190 M130 10 L130 190 M170 10 L170 190"/>
-      </svg>
+  <!-- Navigation Principale -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Savetronik Accueil">
+          <span class="brand-title">Savetronik</span>
+          <span class="brand-tag">LOI 1901</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul>
+            <li><a href="index.html" aria-current="page">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="avantages.html">Avantages</a></li>
+            <li><a href="atelier.html">Atelier &amp; dons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="hero-content">
-      <h1>Savetronik — Réparation et remise en service d'appareils électroniques à Provin et dans la MEL</h1>
-      <p>Fondée par Ainis Haichour, l'association Savetronik est située au 50 rue Camille Desmoulins, 59185 Provin.</p>
-      <a href="contact.html" class="btn">Demander un diagnostic</a>
+  </header>
+
+  <main>
+    <!-- Premier écran / Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-label">Atelier de réparation &amp; reconditionnement</span>
+            <h1>Droit à la réparation à Provin et dans la MEL</h1>
+            <p class="hero-text">
+              Nous sommes Savetronik, association à but non lucratif fondée par Ainis Haichour. Notre atelier se trouve au 50 rue Camille Desmoulins, 59185 Provin. L’accueil se fait uniquement sur rendez‑vous, que vous pouvez demander via le formulaire de contact.
+            </p>
+            <a href="contact.html" class="btn">
+              Demander un diagnostic
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-visual-header">
+              <span>SUBSTRAT: FR-4</span>
+              <span>BANCD_ESSAI_V1</span>
+            </div>
+            <!-- Schema SVG géométrique au trait unique -->
+            <svg class="hero-svg" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grille technique de fond -->
+              <path d="M0 40H320M0 80H320M0 120H320M0 160H320M0 200H320" stroke="#C8C2B4" stroke-width="0.5" stroke-dasharray="2 4"/>
+              <path d="M40 0V220M80 0V220M120 0V220M160 0V220M200 0V220M240 0V220M280 0V220" stroke="#C8C2B4" stroke-width="0.5" stroke-dasharray="2 4"/>
+              
+              <!-- Pistes de circuit imprimé -->
+              <path d="M20 180H70L100 150V80L130 50H220" stroke="#142E22" stroke-width="2" stroke-linecap="square"/>
+              <path d="M20 110H50L70 130H120" stroke="#142E22" stroke-width="1.5"/>
+              <path d="M150 180V130L170 110H280" stroke="#B86222" stroke-width="2"/>
+              <path d="M220 50L250 80V140L270 160H300" stroke="#142E22" stroke-width="1.5"/>
+
+              <!-- Signal d'oscilloscope -->
+              <path d="M30 40H60L70 20L80 60L90 30L100 50L110 40H140" stroke="#B86222" stroke-width="1.5"/>
+
+              <!-- Puce électronique central (QFP / Microcontrôleur) -->
+              <rect x="120" y="70" width="60" height="60" fill="#EAE6DC" stroke="#142E22" stroke-width="2"/>
+              <circle cx="130" cy="80" r="3" fill="#142E22"/>
+              
+              <!-- Broches de la puce -->
+              <path d="M130 60V70M140 60V70M150 60V70M160 60V70M170 60V70" stroke="#142E22" stroke-width="1.5"/>
+              <path d="M130 130V140M140 130V140M150 130V140M160 130V140M170 130V140" stroke="#142E22" stroke-width="1.5"/>
+              <path d="M110 80H120M110 90H120M110 100H120M110 110H120M110 120H120" stroke="#142E22" stroke-width="1.5"/>
+              <path d="M180 80H190M180 90H190M180 100H190M180 110H190M180 120H190" stroke="#142E22" stroke-width="1.5"/>
+
+              <!-- Points de test & composants CMS -->
+              <circle cx="70" cy="180" r="4" fill="#EAE6DC" stroke="#B86222" stroke-width="2"/>
+              <circle cx="220" cy="50" r="4" fill="#EAE6DC" stroke="#142E22" stroke-width="2"/>
+              <circle cx="280" cy="110" r="4" fill="#EAE6DC" stroke="#B86222" stroke-width="2"/>
+              <rect x="40" y="106" width="10" height="8" fill="#142E22"/>
+              <rect x="230" y="76" width="8" height="12" fill="#B86222"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nos trois axes de travail -->
+    <section class="axes-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// DÉMARCHE DE L'ATELIER</span>
+          <h2>Nos trois axes de travail</h2>
+        </div>
+
+        <div class="axes-layout">
+          <article class="axis-block">
+            <div>
+              <span class="axis-code">AXE_01 // DIAGNOSTIC</span>
+              <h3 class="axis-title">Diagnostic et réparation au composant</h3>
+            </div>
+            <p class="axis-desc">
+              Nous identifions la panne et remplaçons le composant défectueux, sans changer la carte entière.
+            </p>
+          </article>
+
+          <article class="axis-block">
+            <div>
+              <span class="axis-code">AXE_02 // RECONDITIONNEMENT</span>
+              <h3 class="axis-title">Reconditionnement de matériel en fin de vie</h3>
+            </div>
+            <p class="axis-desc">
+              Nous remettons en service les appareils destinés à la mise au rebut, en conservant leurs fonctions d’origine.
+            </p>
+          </article>
+
+          <article class="axis-block">
+            <div>
+              <span class="axis-code">AXE_03 // MODDING</span>
+              <h3 class="axis-title">Prototypage et modding</h3>
+            </div>
+            <p class="axis-desc">
+              Nous adaptons des équipements existants ou créons de nouveaux prototypes sur microcontrôleurs et cartes électroniques.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation vers les pages dédiées -->
+    <section class="renvois-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// EXPLORATION</span>
+          <h2>Découvrir l'association</h2>
+        </div>
+
+        <ol class="renvois">
+          <li>
+            <a href="projets.html" class="renvoi-row">
+              <span class="renvoi-title">Projets</span>
+              <p class="renvoi-desc">Détails des réparations de consoles, micro‑soudure, serveurs et modding.</p>
+              <span class="renvoi-link">
+                Voir les projets
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="avantages.html" class="renvoi-row">
+              <span class="renvoi-title">Avantages</span>
+              <p class="renvoi-desc">Analyse du modèle associatif face à l’achat neuf ou au SAV classique.</p>
+              <span class="renvoi-link">
+                Voir les avantages
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="atelier.html" class="renvoi-row">
+              <span class="renvoi-title">Atelier et dons</span>
+              <p class="renvoi-desc">Modalités de don de matériel, de bénévolat et de partenariats locaux.</p>
+              <span class="renvoi-link">
+                Voir comment contribuer
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html" class="renvoi-row">
+              <span class="renvoi-title">Contact</span>
+              <p class="renvoi-desc">Formulaire pour prendre rendez‑vous ou poser une question.</p>
+              <span class="renvoi-link">
+                Accéder au formulaire
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Bandeau territorial et prise de rendez-vous -->
+    <section class="territory-section">
+      <div class="container">
+        <div class="territory-grid">
+          <div class="territory-text">
+            <h2>Ancrage local &amp; proximité</h2>
+            <p>Territoire d’action : Provin, Bauvin, secteur des Weppes, Métropole Européenne de Lille.</p>
+          </div>
+          <div>
+            <a href="contact.html" class="btn btn-copper">
+              Prendre rendez‑vous
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3.33331 8H12.6666M12.6666 8L8.00002 3.33334M12.6666 8L8.00002 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <p class="footer-brand">Savetronik – association à but non lucratif</p>
+          <p class="footer-address">
+            50 rue Camille Desmoulins, 59185 Provin<br>
+            Accueil uniquement sur rendez‑vous.
+          </p>
+        </div>
+
+        <div>
+          <span class="footer-nav-title">Arborescence</span>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="avantages.html">Avantages</a></li>
+            <li><a href="atelier.html">Atelier et dons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Savetronik – Tous droits réservés.</span>
+        <span>Association déclarée en septembre 2026 (Loi 1901)</span>
+      </div>
     </div>
-  </section>
-
-  <!-- Section Les 3 Axes de Travail -->
-  <section class="les-axes">
-    <div class="axe">
-      <h3>Diagnostic et réparation au composant</h3>
-      <p>Diagnostic approfondi et réparation au niveau des composants électroniques d'appareils variés.</p>
-    </div>
-    <div class="axe">
-      <h3>Reconditionnement de matériel</h3>
-      <p>Remise en état de matériel destiné au rebut pour lui redonner une fonctionnalité complète.</p>
-    </div>
-    <div class="axe">
-      <h3>Prototypage et modding</h3>
-      <p>Prototypage sur microcontrôleurs et modernisation d'équipements existants.</p>
-    </div>
-  </section>
-
-  <!-- Section Renvois vers les 4 pages -->
-  <section class="renvois">
-    <h2 class="titre-renvoi">Nos domaines d'intervention</h2>
-    <ul class="list-renvoi">
-      <li class="renvoi">
-        <h3>Projets et domaines techniques</h3>
-        <p>Diagnostic et réparation de consoles (PS5, Nintendo), micro-soudure sur cartes mères, récupération de PC et serveurs, prototypage sur microcontrôleurs.</p>
-        <a href="projets.html">Voir les projets</a>
-      </li>
-      <li class="renvoi">
-        <h3>Intérêt du modèle associatif</h3>
-        <p>Intervention au composant défaillant plutôt que remplacement complet, modèle non lucratif assurant la cohérence financière, action locale à Provin, Bauvin et dans la MEL.</p>
-        <a href="avantages.html">Comprendre notre modèle</a>
-      </li>
-      <li class="renvoi">
-        <h3>Atelier et participation</h3>
-        <p>Collecte de dons de matériel ancien ou en panne, opportunités de bénévolat en diagnostic et soudure, partenariats avec les acteurs locaux de la MEL.</p>
-        <a href="atelier.html">Rejoindre l'atelier</a>
-      </li>
-      <li class="renvoi">
-        <h3>Contact et coordonnées</h3>
-        <p>Adresse postale complète et formulaire de prise de rendez-vous sur demande.</p>
-        <a href="contact.html">Nous contacter</a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Bandeau d'ancrage territorial -->
-  <section class="territoire">
-    <p>Provin, Bauvin, Métropole Européenne de Lille<br>
-    <a href="contact.html">Prendre rendez-vous</a></p>
-  </section>
-
-</main>
-
-<footer>
-  Association Savetronik — 50 rue Camille Desmoulins, 59185 Provin
-</footer>
+  </footer>
 
 </body>
 </html>
