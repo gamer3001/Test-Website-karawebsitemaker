@@ -1,3 +1,3 @@
-# electro-modding-asso
+# savetronik-reconditionnement
 
-Créer un site web moderne et professionnel pour une association étudiante spécialisée dans l'électronique, le modding, l
+Crée le site web vitrine multi-pages de l'association Savetronik (5 pages au total avec l'accueil). 1. IDENTITÉ ET DONNÉ
